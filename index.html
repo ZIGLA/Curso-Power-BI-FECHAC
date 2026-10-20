@@ -1,0 +1,396 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Clases, grabaciones, tareas y materiales del curso de Microsoft Power BI para el equipo de FECHAC.">
+<link rel="icon" type="image/png" href="assets/hexagono.png">
+<style>:root{padding-top:env(safe-area-inset-top);padding-bottom:env(safe-area-inset-bottom)}body{margin:0}[hidden]{display:none!important}img{max-width:100%}</style>
+<title>Curso Power BI FECHAC</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;900&display=swap">
+<style>
+/* Layout: barra superior fija · portada verde con trama de puntos y progreso del curso · grilla de clases · vista de clase con video a la izquierda y materiales a la derecha. Sistema ZIGLA CLASS. */
+/* Tokens del sistema de diseño ZIGLA CLASS */
+:root{
+  --bg:#ffffff; --surface:#f6f8f7; --surface-2:#eef3f0; --line:#dfe6e2;
+  --ink:#363636; --ink-soft:#55565a; --title:#222833;
+  --verde:#1c7c54; --verde-class:#1c7c54; --verde-osc:#1c7c54; --on-verde:#ffffff;
+  --menta:#4ded92; --on-menta:#363636;
+  --violeta:#7b2cbd; --violeta-fill:#7b2cbd; --lavanda:#e3d5e9; --lila:#da95fd;
+  --shadow:0 2px 8px rgba(28,124,84,.12);
+  --font:Montserrat,"Helvetica Neue",Arial,sans-serif;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0f1f18; --surface:#17302a; --surface-2:#1c3830; --line:#2c4a3e;
+  --ink:#e9f1ed; --ink-soft:#a7b8b0; --title:#f3f7f5;
+  --verde:#4fc28d; --on-verde:#ffffff;
+  --on-menta:#0f1f18;
+  --violeta:#c09bea; --lavanda:#2a2135;
+  --shadow:0 2px 8px rgba(0,0,0,.4); color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0f1f18; --surface:#17302a; --surface-2:#1c3830; --line:#2c4a3e;
+  --ink:#e9f1ed; --ink-soft:#a7b8b0; --title:#f3f7f5;
+  --verde:#4fc28d; --on-verde:#ffffff;
+  --on-menta:#0f1f18;
+  --violeta:#c09bea; --lavanda:#2a2135;
+  --shadow:0 2px 8px rgba(0,0,0,.4); color-scheme:dark}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:var(--font);font-size:16px;line-height:1.6;margin:0}
+.wrap{max-width:1160px;margin:0 auto;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
+h1,h2,h3{color:var(--title);text-wrap:balance;margin:0;line-height:1.15}
+p{margin:0}
+a{color:var(--verde)}
+a:focus-visible,button:focus-visible{outline:3px solid var(--violeta-fill);outline-offset:2px;border-radius:8px}
+.eyebrow{font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--verde)}
+.ico{width:20px;height:20px;flex:none;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+
+/* barra superior */
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--bg)}
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:9;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;height:76px}
+.logo{display:flex;align-items:baseline;gap:10px;text-decoration:none;color:var(--title)}
+.logo b{font-weight:900;font-size:20px;letter-spacing:.01em}
+.logo b span{font-weight:400;color:var(--verde)}
+.logo small{font-size:12px;font-weight:600;color:var(--ink-soft);border-left:1px solid var(--line);padding-left:10px}
+nav{display:flex;gap:4px}
+nav a{text-decoration:none;color:var(--ink);font-weight:600;font-size:14px;padding:8px 14px;border-radius:999px}
+nav a:hover{background:var(--surface)}
+nav a[aria-current="page"]{background:var(--verde-class);color:#fff}
+
+/* portada */
+.hero{background:var(--verde-osc);color:#fff;position:relative;overflow:hidden}
+:root .hero{background:#1c7c54}
+.hero::after{content:"";position:absolute;right:-40px;top:0;bottom:0;width:min(46%,520px);background-image:radial-gradient(rgba(255,255,255,.55) 2.6px,transparent 3px);background-size:26px 26px;-webkit-mask-image:linear-gradient(90deg,transparent,#000 45%);mask-image:linear-gradient(90deg,transparent,#000 45%);pointer-events:none}
+.hero .wrap{position:relative;z-index:1;padding-block:56px 48px;display:flex;flex-direction:column;gap:20px}
+.hero .eyebrow{color:var(--menta)}
+.hero h1{color:#fff;font-size:clamp(34px,6vw,60px);font-weight:900;letter-spacing:-.01em;max-width:14ch}
+.hero .sub{font-size:clamp(16px,2vw,19px);max-width:52ch;color:rgba(255,255,255,.92)}
+.hero .meta{display:flex;flex-wrap:wrap;gap:10px}
+.chip{display:inline-flex;align-items:center;gap:8px;font-size:14px;font-weight:600;padding:7px 14px;border-radius:999px;background:rgba(255,255,255,.12);color:#fff}
+.progress{display:grid;grid-template-columns:repeat(8,1fr);gap:6px;max-width:520px;margin-top:8px}
+.progress i{height:8px;border-radius:4px;background:rgba(255,255,255,.22)}
+.progress i.done{background:var(--menta)}
+.progress i.now{background:#fff}
+.plabel{font-size:14px;color:rgba(255,255,255,.85)}
+.cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:6px}
+.btn{display:inline-flex;align-items:center;gap:10px;font-family:inherit;font-weight:700;font-size:15px;text-decoration:none;border-radius:8px;padding:12px 22px;border:0;cursor:pointer}
+.btn.primary{background:var(--menta);color:var(--on-menta)}
+.btn.primary:hover{filter:brightness(1.05)}
+.btn.ghost{background:transparent;color:#fff;box-shadow:inset 0 0 0 2px rgba(255,255,255,.5)}
+.btn.ghost:hover{box-shadow:inset 0 0 0 2px #fff}
+.btn.solid{background:var(--verde-class);color:#fff}
+.btn.solid:hover{filter:brightness(1.08)}
+.btn.line{background:var(--bg);color:var(--title);box-shadow:inset 0 0 0 1.5px var(--line)}
+.btn.line:hover{box-shadow:inset 0 0 0 1.5px var(--verde);color:var(--verde)}
+
+/* secciones */
+.section{padding-block:56px}
+.section-head{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:12px;margin-bottom:28px}
+.section-head h2{font-size:clamp(26px,3.4vw,34px);font-weight:800;margin-top:6px}
+.section-head p{color:var(--ink-soft);max-width:48ch}
+
+/* grilla de clases */
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,330px),1fr));gap:20px;list-style:none;padding:0;margin:0}
+.card{position:relative;display:flex;flex-direction:column;gap:14px;height:100%;padding:24px;border-radius:16px;background:var(--bg);border:1px solid var(--line);text-decoration:none;color:inherit;transition:transform .18s ease,box-shadow .18s ease,border-color .18s}
+.card:hover{transform:translateY(-3px);box-shadow:var(--shadow);border-color:color-mix(in srgb,var(--verde) 40%,var(--line))}
+.card.next{border:2px solid var(--verde);box-shadow:var(--shadow)}
+.card-top{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.big{font-size:44px;font-weight:900;line-height:1;color:var(--verde);font-variant-numeric:tabular-nums}
+.date{font-size:13px;font-weight:600;color:var(--ink-soft)}
+.card h3{font-size:19px;font-weight:700}
+.card p{color:var(--ink-soft);font-size:15px}
+.card-foot{margin-top:auto;display:flex;align-items:center;justify-content:space-between;gap:10px;padding-top:12px;border-top:1px dashed var(--line)}
+.have{display:flex;gap:10px;color:var(--ink-soft)}
+.have .ico{width:18px;height:18px}
+.have .on{color:var(--verde)}
+.go{font-size:14px;font-weight:700;color:var(--verde);display:inline-flex;align-items:center;gap:6px}
+.tag{font-size:12px;font-weight:700;padding:4px 10px;border-radius:999px;letter-spacing:.02em;white-space:nowrap}
+.tag.hoy{background:var(--menta);color:var(--on-menta)}
+.tag.prox{background:var(--verde-class);color:#fff}
+.tag.hecha{background:var(--surface-2);color:var(--verde)}
+.tag.pronto{background:var(--surface);color:var(--ink-soft)}
+
+/* bloque de apoyo */
+.band{background:var(--surface)}
+.tips{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,250px),1fr));gap:20px}
+.tip{display:flex;flex-direction:column;gap:10px;padding:24px;border-radius:18px;background:var(--bg)}
+.tip .ico{width:28px;height:28px;color:var(--verde)}
+.tip h3{font-size:17px}
+.tip p{font-size:15px;color:var(--ink-soft)}
+.tip.ia{background:var(--lavanda)}
+.tip.ia .ico{color:var(--violeta)}
+
+/* vista de clase */
+.crumb{display:inline-flex;align-items:center;gap:8px;font-weight:600;font-size:14px;text-decoration:none;color:var(--ink-soft);margin-bottom:22px}
+.crumb:hover{color:var(--verde)}
+.class-head{background:var(--surface);border-bottom:1px solid var(--line)}
+.class-head .wrap{padding-block:36px 40px;display:grid;grid-template-columns:auto minmax(0,1fr);gap:28px;align-items:start}
+.class-num{width:104px;height:104px;border-radius:24px;background:var(--verde);color:var(--on-verde);display:flex;flex-direction:column;align-items:center;justify-content:center}
+.class-num b{font-size:52px;font-weight:900;line-height:1}
+.class-num small{font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;opacity:.85}
+.class-head h1{font-size:clamp(28px,4.4vw,42px);font-weight:900;margin:8px 0 12px}
+.class-head .lead{font-size:18px;color:var(--ink-soft);max-width:60ch}
+.class-head .meta{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px}
+.pill{display:inline-flex;align-items:center;gap:8px;font-size:14px;font-weight:600;padding:6px 14px;border-radius:999px;background:var(--bg);border:1px solid var(--line)}
+@media (max-width:600px){.class-head .wrap{grid-template-columns:1fr}.class-num{width:76px;height:76px;border-radius:18px}.class-num b{font-size:38px}}
+
+.class-body{padding-block:40px 64px;display:grid;grid-template-columns:minmax(0,1.6fr) minmax(0,1fr);gap:32px;align-items:start}
+@media (max-width:900px){.class-body{grid-template-columns:minmax(0,1fr)}}
+.col{display:flex;flex-direction:column;gap:24px;min-width:0}
+.video{position:relative;aspect-ratio:16/9;max-width:100%;border-radius:18px;overflow:hidden;background:var(--title)}
+.video iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.video-empty{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;text-align:center;padding:24px;color:#fff;background:radial-gradient(circle at 30% 20%,#2a8a62,#123d2b 70%)}
+.video-empty .play{width:72px;height:72px;border-radius:50%;background:rgba(255,255,255,.14);display:flex;align-items:center;justify-content:center}
+.video-empty .play .ico{width:30px;height:30px;color:#fff;fill:#fff;stroke:none}
+.video-empty p{max-width:36ch;color:rgba(255,255,255,.88)}
+.video-empty strong{color:#fff;font-size:18px}
+.panel{border:1px solid var(--line);border-radius:18px;padding:24px;background:var(--bg)}
+.panel h2{font-size:18px;font-weight:700;display:flex;align-items:center;gap:10px;margin-bottom:14px}
+.panel h2 .ico{color:var(--verde)}
+.learn{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:10px}
+.learn li{display:flex;gap:10px;align-items:flex-start;font-size:15px;padding:12px 14px;border-radius:12px;background:var(--surface)}
+.learn .ico{color:var(--verde);margin-top:2px}
+.task{background:var(--lavanda);border-color:transparent}
+.task h2 .ico{color:var(--violeta)}
+.task .due{display:inline-flex;align-items:center;gap:8px;font-size:14px;font-weight:700;color:var(--violeta);margin-bottom:8px}
+.task p{font-size:15px;margin-bottom:16px}
+.res{list-style:none;margin:0;padding:0;display:flex;flex-direction:column}
+.res li+li{border-top:1px solid var(--line)}
+.res a{display:flex;align-items:center;gap:14px;padding:12px 4px;text-decoration:none;color:var(--title);font-weight:600;font-size:15px}
+.res a:hover{color:var(--verde)}
+.res .kind{width:36px;height:36px;border-radius:10px;background:var(--surface);display:flex;align-items:center;justify-content:center;flex:none;color:var(--verde)}
+.res .kind .ico{width:18px;height:18px}
+.res small{display:block;font-weight:500;color:var(--ink-soft);font-size:13px}
+.res .ext{margin-left:auto;color:var(--ink-soft);width:16px;height:16px}
+.muted{color:var(--ink-soft);font-size:15px}
+.locked{display:flex;gap:14px;align-items:flex-start;padding:20px;border-radius:14px;background:var(--surface);color:var(--ink-soft);font-size:15px}
+.locked .ico{color:var(--verde);margin-top:2px}
+.pager{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;border-top:1px solid var(--line);padding-top:24px;margin-top:8px}
+.pager a{text-decoration:none;display:flex;flex-direction:column;gap:2px;max-width:48%;color:var(--title);font-weight:700}
+.pager a small{color:var(--ink-soft);font-weight:600;font-size:12px;letter-spacing:.1em;text-transform:uppercase}
+.pager a.nx{text-align:right;margin-left:auto}
+.pager a:hover{color:var(--verde)}
+
+/* recursos */
+.rgroups{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:24px}
+
+
+@media (max-width:560px){.logo small{display:none}nav a{padding:8px 10px}.hero .wrap{padding-block:40px}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+
+/* marca */
+.logo{align-items:center}
+.logo img{height:56px;width:auto;display:block}
+.logo .logo-b{display:none}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .logo .logo-c{display:none}:root:not([data-theme="light"]) .logo .logo-b{display:block}}
+:root[data-theme="dark"] .logo .logo-c{display:none}
+:root[data-theme="dark"] .logo .logo-b{display:block}
+.hero .pin{position:relative;display:inline-block;padding:0 .18em;z-index:0;white-space:nowrap}
+.hero .pin::before{content:"";position:absolute;inset:-.06em -.12em -.02em -.14em;background:url(assets/pincelada-violeta.png) center/100% 100% no-repeat;z-index:-1}
+.hex{position:relative;width:64px;height:56px;display:flex;align-items:center;justify-content:center;background:url(assets/hexagono.png) center/contain no-repeat;flex:none}
+.hex b{font-size:26px;font-weight:900;color:var(--verde);line-height:1;font-variant-numeric:tabular-nums}
+.hex-lg{width:112px;height:98px}
+.hex-lg b{font-size:46px}
+@media (max-width:600px){.hex-lg{width:80px;height:70px}.hex-lg b{font-size:34px}}
+.tip.ia{border-left:4px solid var(--violeta-fill)}
+.band{background:var(--surface)}
+footer{background:var(--verde-class);color:#fff;position:relative;overflow:hidden}
+footer::after{content:"";position:absolute;right:0;top:0;bottom:0;width:min(40%,420px);background-image:radial-gradient(rgba(255,255,255,.5) 2.4px,transparent 2.8px);background-size:24px 24px;-webkit-mask-image:linear-gradient(90deg,transparent,#000 50%);mask-image:linear-gradient(90deg,transparent,#000 50%)}
+footer .wrap{position:relative;z-index:1;padding-block:36px;display:flex;flex-wrap:wrap;align-items:center;gap:20px 32px}
+footer img{height:56px;width:auto}
+.foot-txt{display:flex;flex-direction:column;gap:4px;font-size:14px;min-width:0}
+.foot-txt b{color:#fff}
+.foot-txt span{color:rgba(255,255,255,.88)}
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <a class="logo" href="#inicio" aria-label="ZIGLA class, inicio del curso"><img class="logo-c" src="assets/logo-color.png" alt="ZIGLA class" width="120" height="55"><img class="logo-b" src="assets/logo-blanco.png" alt="ZIGLA class" width="120" height="55"><small>Curso para FECHAC</small></a>
+    <nav aria-label="Secciones">
+      <a href="#inicio" data-nav="inicio">Clases</a>
+      <a href="#recursos" data-nav="recursos" id="nav-recursos">Recursos</a>
+    </nav>
+  </div>
+</header>
+
+<main id="app"></main>
+
+<footer>
+  <div class="wrap">
+    <img src="assets/logo-blanco.png" alt="ZIGLA class" width="130" height="60">
+    <div class="foot-txt"><b>Curso de Microsoft Power BI · FECHAC · 2026</b><span>¿Dudas? Escríbannos por el chat del curso. Nos encontramos la próxima clase ;)</span></div>
+  </div>
+</footer>
+
+<script src="datos.js"></script>
+<script>
+(function(){
+const C = window.CURSO;
+const app = document.getElementById("app");
+const I = {
+  play:'<svg class="ico" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>',
+  slides:'<svg class="ico" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></svg>',
+  video:'<svg class="ico" viewBox="0 0 24 24"><rect x="2" y="5" width="15" height="14" rx="2"/><path d="m17 10 5-3v10l-5-3"/></svg>',
+  book:'<svg class="ico" viewBox="0 0 24 24"><path d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2z"/><path d="M4 21V5"/></svg>',
+  task:'<svg class="ico" viewBox="0 0 24 24"><path d="M9 11l3 3 8-8"/><path d="M20 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>',
+  clip:'<svg class="ico" viewBox="0 0 24 24"><path d="m21 11-8.5 8.5a5 5 0 0 1-7-7L14 4a3.5 3.5 0 0 1 5 5l-8.5 8.5a2 2 0 0 1-3-3L15 7"/></svg>',
+  db:'<svg class="ico" viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v14c0 1.7 3.6 3 8 3s8-1.3 8-3V5M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3"/></svg>',
+  ext:'<svg class="ico ext" viewBox="0 0 24 24"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg>',
+  cal:'<svg class="ico" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>',
+  clock:'<svg class="ico" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>',
+  check:'<svg class="ico" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="m8 12 3 3 5-6"/></svg>',
+  arrowL:'<svg class="ico" viewBox="0 0 24 24"><path d="M19 12H5M11 6l-6 6 6 6"/></svg>',
+  arrowR:'<svg class="ico" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg>',
+  lock:'<svg class="ico" viewBox="0 0 24 24"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg>',
+  pc:'<svg class="ico" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="13" rx="2"/><path d="M8 21h8M12 17v4"/></svg>',
+  spark:'<svg class="ico" viewBox="0 0 24 24"><path d="M12 3v4M12 17v4M3 12h4M17 12h4M6 6l2.5 2.5M15.5 15.5 18 18M6 18l2.5-2.5M15.5 8.5 18 6"/></svg>',
+  folder:'<svg class="ico" viewBox="0 0 24 24"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>',
+  meet:'<svg class="ico" viewBox="0 0 24 24"><path d="M15 10l5-3v10l-5-3z"/><rect x="3" y="6" width="12" height="12" rx="2"/></svg>'
+};
+const KIND = {lectura:I.book, video:I.video, base:I.db, plantilla:I.clip};
+const MESES=["enero","febrero","marzo","abril","mayo","junio","julio","agosto","septiembre","octubre","noviembre","diciembre"];
+const esc = s => String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const fecha = s => { const [y,m,d]=s.split("-").map(Number); return new Date(y,m-1,d); };
+const larga = s => { const x=fecha(s); return x.getDate()+" de "+MESES[x.getMonth()]; };
+const corta = s => { const x=fecha(s); return x.getDate()+" "+MESES[x.getMonth()].slice(0,3); };
+const hoy = new Date(); hoy.setHours(0,0,0,0);
+const S = C.sesiones;
+const proxima = S.find(s => fecha(s.fecha) >= hoy);
+const estado = s => { const f=+fecha(s.fecha); return f===+hoy ? "hoy" : f<+hoy ? "hecha" : s===proxima ? "prox" : "pronto"; };
+const TAG = {hoy:"Hoy", hecha:"Realizada", prox:"Próxima", pronto:"Próximamente"};
+const abierta = s => s.abrir || fecha(s.fecha) <= hoy;
+const ext = 'target="_blank" rel="noopener"';
+
+function embed(v){
+  if(!v) return "";
+  const yt = v.match(/(?:youtu\.be\/|v=|embed\/)([\w-]{11})/);
+  if(yt) return "https://www.youtube-nocookie.com/embed/"+yt[1];
+  const d = v.match(/\/d\/([\w-]+)/);
+  return "https://drive.google.com/file/d/"+(d?d[1]:v)+"/preview";
+}
+
+function inicio(){
+  const nHechas = S.filter(s => fecha(s.fecha) < hoy).length;
+  const bars = S.map(s => `<i class="${fecha(s.fecha)<hoy?"done":s===proxima?"now":""}"></i>`).join("");
+  const plabel = proxima ? `Clase ${proxima.n} de ${S.length} · ${proxima===S.find(s=>+fecha(s.fecha)===+hoy)?"hoy":"jueves "+larga(proxima.fecha)}` : "Curso finalizado · todos los materiales siguen disponibles";
+  const cards = S.map(s => {
+    const st = estado(s), op = abierta(s);
+    const has = [[I.video, op && s.grabacion, "Grabación"],[I.slides, op && s.presentacion, "Presentación"],[I.task, op && s.tarea, "Tarea"],[I.clip, op && (s.guia || (s.complementario||[]).length), "Material"]]
+      .map(([ic,on,t]) => `<span class="${on?"on":""}" title="${t}${on?"":" (todavía no disponible)"}" aria-label="${t}${on?" disponible":" no disponible"}">${ic}</span>`).join("");
+    return `<li><a class="card ${st==="prox"||st==="hoy"?"next":""}" href="#clase-${s.n}">
+      <div class="card-top"><span class="hex" aria-label="Clase ${s.n}"><b>${s.n}</b></span><span class="tag ${st}">${TAG[st]}</span></div>
+      <div><p class="date">Jueves ${larga(s.fecha)}</p><h3>${esc(s.titulo)}</h3></div>
+      <p>${esc(s.resumen)}</p>
+      <div class="card-foot"><span class="have">${has}</span><span class="go">Ver clase ${I.arrowR}</span></div></a></li>`;
+  }).join("");
+  app.innerHTML = `
+  <section class="hero"><div class="wrap">
+    <p class="eyebrow">Curso para el equipo de ${esc(C.organizacion)}</p>
+    <h1>Curso de Microsoft <span class="pin">Power BI</span></h1>
+    <p class="sub">Ocho clases para pasar de una base en Excel a tableros que ayudan a decidir. Acá están las grabaciones, presentaciones, tareas y materiales de cada clase.</p>
+    <div class="meta"><span class="chip">${I.cal} 22 oct – 10 dic 2026</span><span class="chip">${I.clock} ${esc(C.horario)}</span></div>
+    <div><div class="progress" aria-hidden="true">${bars}</div><p class="plabel" style="margin-top:10px">${plabel}</p></div>
+    <div class="cta">
+      ${proxima ? `<a class="btn primary" href="#clase-${proxima.n}">Ir a la clase ${proxima.n} ${I.arrowR}</a>` : ""}
+      ${C.meet ? `<a class="btn ghost" href="${esc(C.meet)}" ${ext}>${I.meet} Entrar a Google Meet</a>` : ""}
+    </div>
+  </div></section>
+
+  <section class="section"><div class="wrap">
+    <div class="section-head"><div><p class="eyebrow">Programa</p><h2>Las ocho clases</h2></div>
+      <p>Los materiales de cada clase aparecen el día de la clase. La grabación se suma después.</p></div>
+    <ul class="grid">${cards}</ul>
+  </div></section>
+
+  <section class="section band"><div class="wrap">
+    <div class="section-head"><div><p class="eyebrow">Para empezar</p><h2>Antes de la primera clase</h2></div></div>
+    <div class="tips">
+      <div class="tip">${I.pc}<h3>Instalen Power BI Desktop</h3><p>Es gratuito y funciona en Windows. Se instala desde la Microsoft Store. Si su computadora no lo permite, pídanlo a Sistemas.</p></div>
+      <div class="tip">${I.db}<h3>Descarguen la base</h3><p>“Base de datos aprobados 2026.xlsx”, en la carpeta <a href="${C.carpetas.bases}" ${ext}>Bases de datos</a>. Guárdenla en una carpeta que no vayan a mover.</p></div>
+      <div class="tip">${I.folder}<h3>Entreguen en el buzón</h3><p>Cada tarea se sube como archivo .pbix al <a href="${C.carpetas.buzon}" ${ext}>Buzón de tareas</a>, antes de la clase siguiente.</p></div>
+      <div class="tip ia">${I.spark}<h3>La IA sugiere, ustedes verifican</h3><p>En cada clase usamos Copilot con la cuenta de FECHAC. Describimos las columnas, sin pegar datos.</p></div>
+    </div>
+  </div></section>`;
+}
+
+function clase(n){
+  const s = S.find(x => x.n === n); if(!s) return inicio();
+  const st = estado(s), op = abierta(s);
+  const i = S.indexOf(s), prev = S[i-1], next = S[i+1];
+  const comp = (s.complementario||[]).slice();
+  if (s.guia) comp.unshift({titulo:"Guía paso a paso de la práctica", url:s.guia, tipo:"lectura", sub:"Para repasar lo que hicimos en clase"});
+  const video = op && s.grabacion
+    ? `<div class="video"><iframe src="${esc(embed(s.grabacion))}" title="Grabación de la clase ${s.n}" allow="autoplay; fullscreen" allowfullscreen loading="lazy"></iframe></div>`
+    : `<div class="video"><div class="video-empty"><span class="play">${I.play}</span><strong>Grabación de la clase ${s.n}</strong><p>${st==="hecha"||st==="hoy" ? "La grabación se publica acá en las 48 horas siguientes a la clase." : "Disponible después de la clase del jueves "+larga(s.fecha)+"."}</p></div></div>`;
+  const pres = op && s.presentacion
+    ? `<a class="btn solid" href="${esc(s.presentacion)}" ${ext}>${I.slides} Abrir la presentación</a>` : "";
+  const meet = C.meet && (st==="hoy"||st==="prox") ? `<a class="btn line" href="${esc(C.meet)}" ${ext}>${I.meet} Entrar a Google Meet</a>` : "";
+  const tarea = !op ? "" : s.tarea ? `<div class="panel task"><h2>${I.task} Tarea</h2>
+      <p class="due">${I.cal} Entrega: ${esc(s.tarea.entrega)}</p><p>${esc(s.tarea.resumen)}</p>
+      <div style="display:flex;flex-wrap:wrap;gap:10px"><a class="btn solid" href="${esc(s.tarea.url)}" ${ext}>Ver la consigna</a><a class="btn line" href="${C.carpetas.buzon}" ${ext}>Subir al buzón</a></div></div>`
+    : `<div class="panel"><h2>${I.task} Tarea</h2><p class="muted">Esta clase no tiene tarea.</p></div>`;
+  const mat = !op ? "" : `<div class="panel"><h2>${I.clip} Material complementario</h2>${comp.length
+      ? `<ul class="res">${comp.map(r => `<li><a href="${esc(r.url)}" ${ext}><span class="kind">${KIND[r.tipo]||I.book}</span><span>${esc(r.titulo)}${r.sub?`<small>${esc(r.sub)}</small>`:""}</span>${I.ext}</a></li>`).join("")}</ul>`
+      : `<p class="muted">Todavía no hay material complementario para esta clase.</p>`}</div>`;
+  const lock = op ? "" : `<div class="locked">${I.lock}<span>La presentación, la tarea y el material complementario se publican el jueves ${larga(s.fecha)}, el día de la clase.</span></div>`;
+
+  app.innerHTML = `
+  <section class="class-head"><div class="wrap">
+    <div class="hex hex-lg" aria-hidden="true"><b>${s.n}</b></div>
+    <div>
+      <a class="crumb" href="#inicio">${I.arrowL} Todas las clases</a>
+      <p class="eyebrow">Clase ${s.n} de ${S.length} · <span class="tag ${st}">${TAG[st]}</span></p>
+      <h1>${esc(s.titulo)}</h1>
+      <p class="lead">${esc(s.resumen)}</p>
+      <div class="meta"><span class="pill">${I.cal} Jueves ${larga(s.fecha)}</span><span class="pill">${I.clock} 9:00 a 11:00 (CDMX)</span></div>
+    </div>
+  </div></section>
+  <div class="wrap"><div class="class-body">
+    <div class="col">
+      ${video}
+      ${pres||meet ? `<div style="display:flex;flex-wrap:wrap;gap:12px">${pres}${meet}</div>` : ""}
+      <div class="panel"><h2>${I.check} Qué aprendemos</h2><ul class="learn">${s.aprendemos.map(a=>`<li>${I.check}<span>${esc(a)}</span></li>`).join("")}</ul></div>
+    </div>
+    <div class="col">${lock}${tarea}${mat}</div>
+  </div>
+  <nav class="pager" aria-label="Otras clases" style="margin-bottom:56px">
+    ${prev ? `<a href="#clase-${prev.n}"><small>← Clase ${prev.n}</small>${esc(prev.titulo)}</a>` : "<span></span>"}
+    ${next ? `<a class="nx" href="#clase-${next.n}"><small>Clase ${next.n} →</small>${esc(next.titulo)}</a>` : ""}
+  </nav></div>`;
+}
+
+function recursos(){
+  if(!C.mostrarRecursos) return inicio();
+  app.innerHTML = `
+  <section class="class-head"><div class="wrap" style="grid-template-columns:minmax(0,1fr)">
+    <div><a class="crumb" href="#inicio">${I.arrowL} Todas las clases</a>
+    <p class="eyebrow">Recursos</p><h1>Para seguir aprendiendo</h1>
+    <p class="lead">Cursos gratuitos de Microsoft en español, ayuda para instalar y resolver errores, y las carpetas con todos los materiales del curso.</p></div>
+  </div></section>
+  <section class="section"><div class="wrap"><div class="rgroups">
+    ${C.recursos.map(g => `<div class="panel"><h2>${I.book} ${esc(g.grupo)}</h2><ul class="res">${g.items.map(r=>`<li><a href="${esc(r.url)}" ${ext}><span class="kind">${r.fuente==="Google Drive"?I.folder:I.book}</span><span>${esc(r.titulo)}<small>${esc(r.fuente)}</small></span>${I.ext}</a></li>`).join("")}</ul></div>`).join("")}
+  </div></div></section>`;
+}
+
+function route(){
+  const h = (location.hash||"").replace("#","");
+  const m = h.match(/^clase-(\d+)$/);
+  let page = "inicio";
+  if (m) { clase(+m[1]); page = ""; }
+  else if (h === "recursos" && C.mostrarRecursos) { recursos(); page = "recursos"; }
+  else inicio();
+  document.querySelectorAll("[data-nav]").forEach(a => { if(a.dataset.nav===page) a.setAttribute("aria-current","page"); else a.removeAttribute("aria-current"); });
+  window.scrollTo(0,0);
+}
+if(!C.mostrarRecursos) document.getElementById("nav-recursos").hidden = true;
+window.addEventListener("hashchange", route);
+route();
+})();
+</script>
+</body>
+</html>
