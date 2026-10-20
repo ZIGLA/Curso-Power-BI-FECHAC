@@ -143,6 +143,12 @@ nav a[aria-current="page"]{background:var(--verde-class);color:#fff}
 .col{display:flex;flex-direction:column;gap:24px;min-width:0}
 .video{position:relative;aspect-ratio:16/9;max-width:100%;border-radius:18px;overflow:hidden;background:var(--title)}
 .video iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.media{display:flex;flex-direction:column;gap:12px}
+.media [hidden]{display:none}
+.tabs{display:inline-flex;gap:4px;padding:4px;border-radius:12px;background:var(--surface);border:1px solid var(--line);align-self:flex-start}
+.tabs button{display:inline-flex;align-items:center;gap:8px;font-family:inherit;font-weight:700;font-size:15px;padding:9px 18px;border:0;border-radius:9px;background:transparent;color:var(--ink-soft);cursor:pointer}
+.tabs button:hover{color:var(--title)}
+.tabs button[aria-selected="true"]{background:var(--verde-class);color:#fff}
 .video-empty{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;text-align:center;padding:24px;color:#fff;background:radial-gradient(circle at 30% 20%,#2a8a62,#123d2b 70%)}
 .video-empty .play{width:72px;height:72px;border-radius:50%;background:rgba(255,255,255,.14);display:flex;align-items:center;justify-content:center}
 .video-empty .play .ico{width:30px;height:30px;color:#fff;fill:#fff;stroke:none}
@@ -273,6 +279,12 @@ function embed(v){
   const d = v.match(/\/d\/([\w-]+)/);
   return "https://drive.google.com/file/d/"+(d?d[1]:v)+"/preview";
 }
+// Google Slides se embebe con /embed; un .pptx o .pdf subido a Drive, con el visor de Drive
+function slidesEmbed(v){
+  const g = v.match(/presentation\/d\/([\w-]+)/);
+  if(g) return "https://docs.google.com/presentation/d/"+g[1]+"/embed?start=false&loop=false";
+  return embed(v);
+}
 
 function inicio(){
   const nHechas = S.filter(s => fecha(s.fecha) < hoy).length;
@@ -329,6 +341,12 @@ function clase(n){
     : `<div class="video"><div class="video-empty"><span class="play">${I.play}</span><strong>Grabación de la clase ${s.n}</strong><p>${st==="hecha"||st==="hoy" ? "La grabación se publica acá en las 48 horas siguientes a la clase." : "Disponible después de la clase del jueves "+larga(s.fecha)+"."}</p></div></div>`;
   const pres = op && s.presentacion
     ? `<a class="btn solid" href="${esc(s.presentacion)}" ${ext}>${I.slides} Abrir la presentación</a>` : "";
+  const tabs = op && s.presentacion ? `<div class="tabs" role="tablist" aria-label="Contenido de la clase ${s.n}">
+      <button role="tab" id="tab-video" aria-controls="pane-video" aria-selected="${s.grabacion?"true":"false"}">${I.video} Grabación</button>
+      <button role="tab" id="tab-slides" aria-controls="pane-slides" aria-selected="${s.grabacion?"false":"true"}">${I.slides} Presentación</button></div>` : "";
+  const slides = op && s.presentacion
+    ? `<div class="video" id="pane-slides" role="tabpanel" aria-labelledby="tab-slides" ${s.grabacion?"hidden":""}><iframe src="${esc(slidesEmbed(s.presentacion))}" title="Presentación de la clase ${s.n}" allowfullscreen loading="lazy"></iframe></div>` : "";
+  const media = tabs ? `<div class="media">${tabs}<div id="pane-video" role="tabpanel" aria-labelledby="tab-video" ${s.grabacion?"":"hidden"}>${video}</div>${slides}</div>` : video;
   const meet = C.meet && (st==="hoy"||st==="prox") ? `<a class="btn line" href="${esc(C.meet)}" ${ext}>${I.meet} Entrar a Google Meet</a>` : "";
   const tarea = !op ? "" : s.tarea ? `<div class="panel task"><h2>${I.task} Tarea</h2>
       <p class="due">${I.cal} Entrega: ${esc(s.tarea.entrega)}</p><p>${esc(s.tarea.resumen)}</p>
@@ -352,7 +370,7 @@ function clase(n){
   </div></section>
   <div class="wrap"><div class="class-body">
     <div class="col">
-      ${video}
+      ${media}
       ${pres||meet ? `<div style="display:flex;flex-wrap:wrap;gap:12px">${pres}${meet}</div>` : ""}
       <div class="panel"><h2>${I.check} Qué aprendemos</h2><ul class="learn">${s.aprendemos.map(a=>`<li>${I.check}<span>${esc(a)}</span></li>`).join("")}</ul></div>
     </div>
@@ -362,6 +380,13 @@ function clase(n){
     ${prev ? `<a href="#clase-${prev.n}"><small>← Clase ${prev.n}</small>${esc(prev.titulo)}</a>` : "<span></span>"}
     ${next ? `<a class="nx" href="#clase-${next.n}"><small>Clase ${next.n} →</small>${esc(next.titulo)}</a>` : ""}
   </nav></div>`;
+  app.querySelectorAll('[role="tab"]').forEach(t => t.addEventListener("click", () => {
+    app.querySelectorAll('[role="tab"]').forEach(o => {
+      const on = o === t;
+      o.setAttribute("aria-selected", on);
+      document.getElementById(o.getAttribute("aria-controls")).hidden = !on;
+    });
+  }));
 }
 
 function recursos(){
