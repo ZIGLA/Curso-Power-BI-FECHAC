@@ -34,7 +34,7 @@ window.CURSO = {
       aprendemos: ["Qué es Power BI, su historia y qué hace", "Power Query (lenguaje M) y DAX: bajo código", "Conectar un Excel, recorrer las vistas y paneles", "Primera medida (Proyectos), tarjetas, barras, anillo, torta y formato básico"],
       presentacion: "https://docs.google.com/presentation/d/1AybYu8gh1QmGImIEtQkd0QoIm7VcOhHTpY930VuKAZE/edit", grabacion: "", abrir: true,
       guia: doc("14N-FSMQV6LL4K8gBhEF3qUqj144Wx_z6DPI9KPmaFBs"),
-      tarea: { url: doc("17XxBAFB_ZmoncR5cvYwlB9bRdD5sl9QIGZdo9sIT6RM"), entrega: "Miércoles 28 de octubre", resumen: "Dos gráficos nuevos y una lista de datos raros." },
+      tarea: { url: doc("17XxBAFB_ZmoncR5cvYwlB9bRdD5sl9QIGZdo9sIT6RM"), entrega: "Miércoles 28 de octubre", resumen: "Completar el tablero y sumar un gráfico de inversión por Consejo (proyectos por mes, opcional)." },
       complementario: [
         { titulo: "Base de datos aprobados 2026 (.xlsx)", url: carpeta("1J1zqH6fC52tHJtacYFlf2_MF6pa7bK57"), tipo: "base" },
         { titulo: "Introducción a Power BI Desktop (Microsoft Learn)", url: "https://learn.microsoft.com/es-es/power-bi/fundamentals/desktop-getting-started", tipo: "lectura" },
