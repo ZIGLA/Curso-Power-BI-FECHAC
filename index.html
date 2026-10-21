@@ -263,6 +263,9 @@ const MESES=["enero","febrero","marzo","abril","mayo","junio","julio","agosto","
 const esc = s => String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 const fecha = s => { const [y,m,d]=s.split("-").map(Number); return new Date(y,m-1,d); };
 const larga = s => { const x=fecha(s); return x.getDate()+" de "+MESES[x.getMonth()]; };
+const DIAS=["domingo","lunes","martes","miércoles","jueves","viernes","sábado"];
+const dia = s => DIAS[fecha(s).getDay()];
+const Dia = s => { const d=dia(s); return d[0].toUpperCase()+d.slice(1); };
 const corta = s => { const x=fecha(s); return x.getDate()+" "+MESES[x.getMonth()].slice(0,3); };
 const hoy = new Date(); hoy.setHours(0,0,0,0);
 const S = C.sesiones;
@@ -289,14 +292,14 @@ function slidesEmbed(v){
 function inicio(){
   const nHechas = S.filter(s => fecha(s.fecha) < hoy).length;
   const bars = S.map(s => `<i class="${fecha(s.fecha)<hoy?"done":s===proxima?"now":""}"></i>`).join("");
-  const plabel = proxima ? `Clase ${proxima.n} de ${S.length} · ${proxima===S.find(s=>+fecha(s.fecha)===+hoy)?"hoy":"jueves "+larga(proxima.fecha)}` : "Curso finalizado · todos los materiales siguen disponibles";
+  const plabel = proxima ? `Clase ${proxima.n} de ${S.length} · ${proxima===S.find(s=>+fecha(s.fecha)===+hoy)?"hoy":dia(proxima.fecha)+" "+larga(proxima.fecha)}` : "Curso finalizado · todos los materiales siguen disponibles";
   const cards = S.map(s => {
     const st = estado(s), op = abierta(s);
     const has = [[I.video, op && s.grabacion, "Grabación"],[I.slides, op && s.presentacion, "Presentación"],[I.task, op && s.tarea, "Tarea"],[I.clip, op && (s.guia || (s.complementario||[]).length), "Material"]]
       .map(([ic,on,t]) => `<span class="${on?"on":""}" title="${t}${on?"":" (todavía no disponible)"}" aria-label="${t}${on?" disponible":" no disponible"}">${ic}</span>`).join("");
     return `<li><a class="card ${st==="prox"||st==="hoy"?"next":""}" href="#clase-${s.n}">
       <div class="card-top"><span class="hex" aria-label="Clase ${s.n}"><b>${s.n}</b></span><span class="tag ${st}">${TAG[st]}</span></div>
-      <div><p class="date">Jueves ${larga(s.fecha)}</p><h3>${esc(s.titulo)}</h3></div>
+      <div><p class="date">${Dia(s.fecha)} ${larga(s.fecha)}</p><h3>${esc(s.titulo)}</h3></div>
       <p>${esc(s.resumen)}</p>
       <div class="card-foot"><span class="have">${has}</span><span class="go">Ver clase ${I.arrowR}</span></div></a></li>`;
   }).join("");
@@ -338,7 +341,7 @@ function clase(n){
   if (s.guia) comp.unshift({titulo:"Guía paso a paso de la práctica", url:s.guia, tipo:"lectura", sub:"Para repasar lo que hicimos en clase"});
   const video = op && s.grabacion
     ? `<div class="video"><iframe src="${esc(embed(s.grabacion))}" title="Grabación de la clase ${s.n}" allow="autoplay; fullscreen" allowfullscreen loading="lazy"></iframe></div>`
-    : `<div class="video"><div class="video-empty"><span class="play">${I.play}</span><strong>Grabación de la clase ${s.n}</strong><p>${st==="hecha"||st==="hoy" ? "La grabación se publica acá en las 48 horas siguientes a la clase." : "Disponible después de la clase del jueves "+larga(s.fecha)+"."}</p></div></div>`;
+    : `<div class="video"><div class="video-empty"><span class="play">${I.play}</span><strong>Grabación de la clase ${s.n}</strong><p>${st==="hecha"||st==="hoy" ? "La grabación se publica acá en las 48 horas siguientes a la clase." : "Disponible después de la clase del "+dia(s.fecha)+" "+larga(s.fecha)+"."}</p></div></div>`;
   const pres = op && s.presentacion
     ? `<a class="btn solid" href="${esc(s.presentacion)}" ${ext}>${I.slides} Abrir la presentación</a>` : "";
   const tabs = op && s.presentacion ? `<div class="tabs" role="tablist" aria-label="Contenido de la clase ${s.n}">
@@ -355,7 +358,7 @@ function clase(n){
   const mat = !op ? "" : `<div class="panel"><h2>${I.clip} Material complementario</h2>${comp.length
       ? `<ul class="res">${comp.map(r => `<li><a href="${esc(r.url)}" ${ext}><span class="kind">${KIND[r.tipo]||I.book}</span><span>${esc(r.titulo)}${r.sub?`<small>${esc(r.sub)}</small>`:""}</span>${I.ext}</a></li>`).join("")}</ul>`
       : `<p class="muted">Todavía no hay material complementario para esta clase.</p>`}</div>`;
-  const lock = op ? "" : `<div class="locked">${I.lock}<span>La presentación, la tarea y el material complementario se publican el jueves ${larga(s.fecha)}, el día de la clase.</span></div>`;
+  const lock = op ? "" : `<div class="locked">${I.lock}<span>La presentación, la tarea y el material complementario se publican el ${dia(s.fecha)} ${larga(s.fecha)}, el día de la clase.</span></div>`;
 
   app.innerHTML = `
   <section class="class-head"><div class="wrap">
@@ -365,7 +368,7 @@ function clase(n){
       <p class="eyebrow">Clase ${s.n} de ${S.length} · <span class="tag ${st}">${TAG[st]}</span></p>
       <h1>${esc(s.titulo)}</h1>
       <p class="lead">${esc(s.resumen)}</p>
-      <div class="meta"><span class="pill">${I.cal} Jueves ${larga(s.fecha)}</span><span class="pill">${I.clock} 9:00 a 11:00 (CDMX)</span></div>
+      <div class="meta"><span class="pill">${I.cal} ${Dia(s.fecha)} ${larga(s.fecha)}</span><span class="pill">${I.clock} 9:00 a 11:00 (CDMX)</span></div>
     </div>
   </div></section>
   <div class="wrap"><div class="class-body">
