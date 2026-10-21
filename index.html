@@ -233,7 +233,8 @@ footer img{height:56px;width:auto}
   </div>
 </footer>
 
-<script src="datos.js"></script>
+<!-- datos.js se pide con la hora para saltear la caché: los cambios se ven apenas se recarga la página -->
+<script>document.write('<script src="datos.js?v=' + Date.now() + '"><\/script>');</script>
 <script>
 (function(){
 const C = window.CURSO;
