@@ -32,7 +32,7 @@ window.CURSO = {
       n: 1, fecha: "2026-10-22", titulo: "Primeros pasos en Microsoft Power BI",
       resumen: "Instalamos Power BI Desktop, cargamos la base de proyectos 2026 y armamos el primer tablero.",
       aprendemos: ["Qué es Power BI, su historia y qué hace", "Power Query (lenguaje M) y DAX: bajo código", "Conectar un Excel, recorrer las vistas y paneles", "Primera medida (Proyectos), tarjetas, barras, anillo, torta y formato básico"],
-      presentacion: "https://docs.google.com/presentation/d/1AybYu8gh1QmGImIEtQkd0QoIm7VcOhHTpY930VuKAZE/edit", grabacion: "", abrir: true,
+      presentacion: "https://docs.google.com/presentation/d/1AybYu8gh1QmGImIEtQkd0QoIm7VcOhHTpY930VuKAZE/edit", grabacion: "1JpLwbbwZPJyZwP2fI2iJG0mxFmSH3lXj", abrir: true,
       guia: doc("14N-FSMQV6LL4K8gBhEF3qUqj144Wx_z6DPI9KPmaFBs"),
       tarea: { url: doc("17XxBAFB_ZmoncR5cvYwlB9bRdD5sl9QIGZdo9sIT6RM"), entrega: "Miércoles 28 de octubre", resumen: "Completar el tablero y sumar un gráfico de inversión por Consejo (proyectos por mes, opcional)." },
       complementario: [
