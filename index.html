@@ -292,6 +292,8 @@ function slidesEmbed(v){
 
 function inicio(){
   const nHechas = S.filter(s => fecha(s.fecha) < hoy).length;
+  // el botón lleva a la última clase con grabación publicada; antes de la primera grabación, a la próxima clase
+  const cta = S.slice().reverse().find(s => s.grabacion && abierta(s)) || proxima;
   const bars = S.map(s => `<i class="${fecha(s.fecha)<hoy?"done":s===proxima?"now":""}"></i>`).join("");
   const plabel = proxima ? `Clase ${proxima.n} de ${S.length} · ${proxima===S.find(s=>+fecha(s.fecha)===+hoy)?"hoy":dia(proxima.fecha)+" "+larga(proxima.fecha)}` : "Curso finalizado · todos los materiales siguen disponibles";
   const cards = S.map(s => {
@@ -312,7 +314,7 @@ function inicio(){
     <div class="meta"><span class="chip">${I.cal} 22 oct – 10 dic 2026</span><span class="chip">${I.clock} ${esc(C.horario)}</span></div>
     <div><div class="progress" aria-hidden="true">${bars}</div><p class="plabel" style="margin-top:10px">${plabel}</p></div>
     <div class="cta">
-      ${proxima ? `<a class="btn primary" href="#clase-${proxima.n}">Ir a la clase ${proxima.n} ${I.arrowR}</a>` : ""}
+      ${cta ? `<a class="btn primary" href="#clase-${cta.n}">Ir a la clase ${cta.n} ${I.arrowR}</a>` : ""}
       ${C.meet ? `<a class="btn ghost" href="${esc(C.meet)}" ${ext}>${I.meet} Entrar a Google Meet</a>` : ""}
     </div>
   </div></section>
