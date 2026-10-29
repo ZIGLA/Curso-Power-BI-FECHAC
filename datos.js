@@ -45,7 +45,7 @@ window.CURSO = {
       n: 2, fecha: "2026-10-29", titulo: "Limpieza y transformación de datos",
       resumen: "En Power Query dejamos la base lista para analizar y damos los primeros pasos con DAX.",
       aprendemos: ["Power Query: tipos de dato, quitar filas que sobran, dividir columnas, reemplazar valores, columna condicional", "Pasos aplicados: la limpieza queda grabada", "Lo básico de DAX: medida o columna, SUM, DIVIDE, DISTINCTCOUNT"],
-      presentacion: "", grabacion: "",
+      presentacion: "https://docs.google.com/presentation/d/1ueypP5CuF6y6dQH7ZHmBIuONbRDkBnVRpERG0W0dBBs/edit", grabacion: "",
       guia: doc("1oWyiLfNIf52PGW-eFRR9BgqBnT3ItOTaze-zbb7V3Yw"),
       tarea: { url: doc("1yD0SH03vGn5Q-0yxnlIMhjidnbq7MjCXhJbURj2twWM"), entrega: "Miércoles 4 de noviembre", resumen: "Limpiar un reporte de informes de seguimiento y graficar pendientes por ejecutivo." },
       complementario: [
