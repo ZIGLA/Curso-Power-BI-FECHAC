@@ -18,6 +18,7 @@ window.CURSO = {
   horario: "Jueves de 9:00 a 11:00 · hora del centro de México · Google Meet",
   meet: "",                  // enlace fijo de Google Meet del curso (opcional)
   mostrarRecursos: true,     // false para ocultar la sección Recursos
+  portada: 2,                // clase a la que lleva el botón de la portada (null = la última con grabación)
 
   carpetas: {
     guias: carpeta("1lZKPSeqY1PLd_Vgzjn-t5UjXjWrhWOY6"),

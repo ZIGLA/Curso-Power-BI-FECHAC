@@ -292,8 +292,8 @@ function slidesEmbed(v){
 
 function inicio(){
   const nHechas = S.filter(s => fecha(s.fecha) < hoy).length;
-  // el botón lleva a la última clase con grabación publicada; antes de la primera grabación, a la próxima clase
-  const cta = S.slice().reverse().find(s => s.grabacion && abierta(s)) || proxima;
+  // el botón lleva a la clase fijada en datos.js (portada); si no hay, a la última con grabación y, antes de la primera grabación, a la próxima
+  const cta = S.find(s => s.n === C.portada) || S.slice().reverse().find(s => s.grabacion && abierta(s)) || proxima;
   const bars = S.map(s => `<i class="${fecha(s.fecha)<hoy?"done":s===proxima?"now":""}"></i>`).join("");
   const plabel = proxima ? `Clase ${proxima.n} de ${S.length} · ${proxima===S.find(s=>+fecha(s.fecha)===+hoy)?"hoy":dia(proxima.fecha)+" "+larga(proxima.fecha)}` : "Curso finalizado · todos los materiales siguen disponibles";
   const cards = S.map(s => {
