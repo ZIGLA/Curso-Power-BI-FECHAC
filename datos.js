@@ -58,7 +58,14 @@ window.CURSO = {
     { n: 3, fecha: "2026-11-05", titulo: "Modelo relacional: trabajar con varias tablas",
       resumen: "Relacionamos proyectos, informes, ministraciones y ejecutivos en un modelo estrella.",
       aprendemos: ["Tablas de hechos y dimensiones, modelo estrella", "Relaciones uno a varios y cómo filtran", "Base de seguimiento: proyectos, informes, ministraciones y ejecutivos"],
-      presentacion: "", grabacion: "", guia: "", tarea: null, complementario: [] },
+      presentacion: "https://docs.google.com/presentation/d/1ymry6GfH6jn4LFva-_tdp2SqoX8_hmI4kA03cQMoTqI/edit", grabacion: "", abrir: true,
+      guia: doc("1uOUd9cYnuLT9EgE2vsw79ZmOYfqpslW6WHwu99JqhOM"),
+      tarea: { url: doc("10-wqan3Kf6GgGfM6izE7ZStxZ3K8cZAnvqpYJvV5q50"), entrega: "Miércoles 11 de noviembre", resumen: "Con el mismo modelo, responder preguntas nuevas: la cartera de cada ejecutivo, programa o construcción, informes por tipo y pagos por área." },
+      complementario: [
+        { titulo: "Bases de datos del curso", url: carpeta("1J1zqH6fC52tHJtacYFlf2_MF6pa7bK57"), tipo: "base" },
+        { titulo: "Crear y administrar relaciones (Microsoft Learn)", url: "https://learn.microsoft.com/es-es/power-bi/transform-model/desktop-create-and-manage-relationships", tipo: "lectura" },
+        { titulo: "Qué es un esquema de estrella (Microsoft Learn)", url: "https://learn.microsoft.com/es-es/power-bi/guidance/star-schema", tipo: "lectura" }
+      ] },
     { n: 4, fecha: "2026-11-12", titulo: "Fórmulas DAX y otras transformaciones",
       resumen: "Calculamos con CALCULATE y fechas: acumulados, comparación con el año anterior y días de atraso.",
       aprendemos: ["CALCULATE y el contexto de filtro", "Tabla de calendario con CALENDARAUTO", "Inteligencia de tiempo: acumulado del año y comparación con el año anterior", "Otras fórmulas: DATEDIFF para días de atraso", "Anular dinamización (unpivot) para preguntas de selección múltiple"],
