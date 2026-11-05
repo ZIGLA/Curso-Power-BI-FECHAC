@@ -58,7 +58,7 @@ window.CURSO = {
     { n: 3, fecha: "2026-11-05", titulo: "Modelo relacional: trabajar con varias tablas",
       resumen: "Relacionamos proyectos, informes, ministraciones y ejecutivos en un modelo estrella.",
       aprendemos: ["Tablas de hechos y dimensiones, modelo estrella", "Relaciones uno a varios y cómo filtran", "Base de seguimiento: proyectos, informes, ministraciones y ejecutivos"],
-      presentacion: "https://docs.google.com/presentation/d/1ymry6GfH6jn4LFva-_tdp2SqoX8_hmI4kA03cQMoTqI/edit", grabacion: "", abrir: true,
+      presentacion: "https://docs.google.com/presentation/d/1lzHnk3URnbHiQOexqznyEbT_3sCYTJ65esN4PzKpSzA/edit", grabacion: "", abrir: true,
       guia: doc("1uOUd9cYnuLT9EgE2vsw79ZmOYfqpslW6WHwu99JqhOM"),
       tarea: { url: doc("10-wqan3Kf6GgGfM6izE7ZStxZ3K8cZAnvqpYJvV5q50"), entrega: "Miércoles 11 de noviembre", resumen: "Con el mismo modelo, responder preguntas nuevas: la cartera de cada ejecutivo, programa o construcción, informes por tipo y pagos por área." },
       complementario: [
