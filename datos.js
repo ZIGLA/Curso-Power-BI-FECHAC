@@ -18,7 +18,7 @@ window.CURSO = {
   horario: "Jueves de 9:00 a 11:00 · hora del centro de México · Google Meet",
   meet: "",                  // enlace fijo de Google Meet del curso (opcional)
   mostrarRecursos: true,     // false para ocultar la sección Recursos
-  portada: 3,                // clase a la que lleva el botón de la portada (null = la última con grabación)
+  portada: 4,               // clase a la que lleva el botón de la portada (null = la última con grabación)
 
   carpetas: {
     guias: carpeta("1lZKPSeqY1PLd_Vgzjn-t5UjXjWrhWOY6"),
@@ -69,7 +69,14 @@ window.CURSO = {
     { n: 4, fecha: "2026-11-12", titulo: "Fórmulas DAX y otras transformaciones",
       resumen: "Calculamos con CALCULATE y fechas: acumulados, comparación con el año anterior y días de atraso.",
       aprendemos: ["CALCULATE y el contexto de filtro", "Tabla de calendario con CALENDARAUTO", "Inteligencia de tiempo: acumulado del año y comparación con el año anterior", "Otras fórmulas: DATEDIFF para días de atraso", "Anular dinamización (unpivot) para preguntas de selección múltiple"],
-      presentacion: "", grabacion: "", guia: "", tarea: null, complementario: [] },
+      presentacion: "https://docs.google.com/presentation/d/1uBDoTUYPkKzgoLq_lMbxt8F3yBzhu4MVMUurle3VTOQ/edit", grabacion: "1YqNT_8Trc0Z7YiAQjiVJ8uyiqtf9dUgZ",
+      guia: doc("1DWsDL03l8zgnSXuivPKWQ3jzEQeGn8zcIShUZMERsUc"),
+      tarea: { url: doc("1Xsm4Y7DOz95g7BZHO4mmES6HBfNpVGp_loBF4eUtla8"), entrega: "Miércoles 18 de noviembre", resumen: "Usar las mismas fórmulas para preguntas nuevas (informes aprobados, acumulado del año, monto por pagar) y terminar la página operativa." },
+      complementario: [
+        { titulo: "Bases de datos del curso", url: carpeta("1J1zqH6fC52tHJtacYFlf2_MF6pa7bK57"), tipo: "base" },
+        { titulo: "Función CALCULATE (Microsoft Learn)", url: "https://learn.microsoft.com/es-es/dax/calculate-function-dax", tipo: "lectura" },
+        { titulo: "Funciones de inteligencia de tiempo (Microsoft Learn)", url: "https://learn.microsoft.com/es-es/dax/time-intelligence-functions-dax", tipo: "lectura" }
+      ] },
     { n: 5, fecha: "2026-11-19", titulo: "Diseño de tableros",
       resumen: "Elegimos el gráfico para cada pregunta y armamos páginas claras, con el tema de FECHAC y navegación.",
       aprendemos: ["Qué gráfico usar para cada pregunta", "Paleta de colores y tema de FECHAC, portadas y orden de la página", "Mapas por municipio sin errores", "Interacción y navegación: segmentadores sincronizados, interacciones entre gráficos, botones, información sobre herramientas"],
