@@ -80,7 +80,13 @@ window.CURSO = {
     { n: 5, fecha: "2026-11-19", titulo: "Diseño de tableros",
       resumen: "Elegimos el gráfico para cada pregunta y armamos páginas claras, con el tema de FECHAC y navegación.",
       aprendemos: ["Qué gráfico usar para cada pregunta", "Paleta de colores y tema de FECHAC, portadas y orden de la página", "Mapas por municipio sin errores", "Interacción y navegación: segmentadores sincronizados, interacciones entre gráficos, botones, información sobre herramientas"],
-      presentacion: "", grabacion: "", guia: "", tarea: null, complementario: [] },
+      presentacion: "https://docs.google.com/presentation/d/1bKD0VQiP-jWjPy5yemba5o9j0iFLMRXASwAYDtT6Ngo/edit", grabacion: "",
+      guia: doc("1kj-SSeUXAYtiwIiDn_vO7V8PiUy3RDERh_jQqoFy1xc"),
+      tarea: { url: doc("1vQbogvGhPEUJOVxnZwezgEVpG7R5DFUamdhAibQviBk"), entrega: "Martes 24 de noviembre", resumen: "Practicar Power Query con la población objetivo y darle diseño a la página Operativo: tema, logo, título, filtros, tarjetas, gráficos y tabla." },
+      complementario: [
+        { titulo: "Dataset de población objetivo y bases del curso", url: carpeta("1J1zqH6fC52tHJtacYFlf2_MF6pa7bK57"), tipo: "base" },
+        { titulo: "Recursos: logo y tema de FECHAC para Power BI", url: carpeta("1ZMG8A9dZfwvDiq6AnfVzC9enTHpBUrss"), tipo: "plantilla" }
+      ] },
     { n: 6, fecha: "2026-11-25", titulo: "Tableros según quién los usa: operativos y estratégicos",
       resumen: "Partimos de quién usa el tablero para definir preguntas e indicadores, y armamos uno operativo con indicadores de FECHAC.",
       aprendemos: ["Del público a las preguntas y los indicadores", "Tableros operativos y estratégicos: ejemplos", "Semáforos y formato condicional", "Un tablero operativo con indicadores de FECHAC (por diseñar)"],
