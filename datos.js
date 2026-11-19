@@ -18,7 +18,7 @@ window.CURSO = {
   horario: "Jueves de 9:00 a 11:00 · hora del centro de México · Google Meet",
   meet: "",                  // enlace fijo de Google Meet del curso (opcional)
   mostrarRecursos: true,     // false para ocultar la sección Recursos
-  portada: 4,               // clase a la que lleva el botón de la portada (null = la última con grabación)
+  portada: 5,               // clase a la que lleva el botón de la portada (null = la última con grabación)
 
   carpetas: {
     guias: carpeta("1lZKPSeqY1PLd_Vgzjn-t5UjXjWrhWOY6"),
@@ -80,7 +80,7 @@ window.CURSO = {
     { n: 5, fecha: "2026-11-19", titulo: "Diseño de tableros",
       resumen: "Elegimos el gráfico para cada pregunta y armamos páginas claras, con el tema de FECHAC y navegación.",
       aprendemos: ["Qué gráfico usar para cada pregunta", "Paleta de colores y tema de FECHAC, portadas y orden de la página", "Mapas por municipio sin errores", "Interacción y navegación: segmentadores sincronizados, interacciones entre gráficos, botones, información sobre herramientas"],
-      presentacion: "https://docs.google.com/presentation/d/1bKD0VQiP-jWjPy5yemba5o9j0iFLMRXASwAYDtT6Ngo/edit", grabacion: "",
+      presentacion: "https://docs.google.com/presentation/d/1bKD0VQiP-jWjPy5yemba5o9j0iFLMRXASwAYDtT6Ngo/edit", grabacion: "1e6Wo_ZTg4dhzRHpKBQhjmu2hVBP2ugmb",
       guia: doc("1kj-SSeUXAYtiwIiDn_vO7V8PiUy3RDERh_jQqoFy1xc"),
       tarea: { url: doc("1vQbogvGhPEUJOVxnZwezgEVpG7R5DFUamdhAibQviBk"), entrega: "Martes 24 de noviembre", resumen: "Practicar Power Query con la población objetivo y darle diseño a la página Operativo: tema, logo, título, filtros, tarjetas, gráficos y tabla." },
       complementario: [
