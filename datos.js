@@ -90,10 +90,11 @@ window.CURSO = {
     { n: 6, fecha: "2026-11-25", titulo: "Tableros según quién los usa: operativos y estratégicos",
       resumen: "Partimos de quién usa el tablero para definir preguntas e indicadores, y armamos uno operativo con indicadores de FECHAC.",
       aprendemos: ["Del público a las preguntas y los indicadores", "Tableros operativos y estratégicos: ejemplos", "Semáforos y formato condicional", "Un tablero operativo con indicadores de FECHAC (por diseñar)"],
-      presentacion: "", grabacion: "1pXO9viUpK7rgDl0H9cskjtsqAaHhCXR-",
+      presentacion: "https://docs.google.com/presentation/d/14j4iFh6qe9YoXoS2znfyY7tpaCink4VnAmuJ9NGDjqk/edit", grabacion: "1pXO9viUpK7rgDl0H9cskjtsqAaHhCXR-",
       guia: doc("10YbOX3ypbyi0JPNX7w3JokyDIBFZz3ZGFn-obnmtKLs"),
       tarea: { url: doc("1u9T9GtjsUhwC45pny7UqcMc9FeF7e5G338uFptli2R4"), entrega: "Miércoles 2 de diciembre", resumen: "Con los formularios del SADAP, armar tres páginas de lo general al detalle: Indicadores, Estratégico con semáforo por consejo y el indicador 8A en Operativo." },
       complementario: [
+        { titulo: "Video: semáforo en una tabla", url: "https://drive.google.com/file/d/1ZByPNkfDXMpoH76703RgGEcfIrv3-WBv/view", tipo: "video" },
         { titulo: "Dataset de formularios MEL (SADAP) y bases del curso", url: carpeta("1J1zqH6fC52tHJtacYFlf2_MF6pa7bK57"), tipo: "base" }
       ] },
     { n: 7, fecha: "2026-12-03", titulo: "Conexión a los datos y publicación",
