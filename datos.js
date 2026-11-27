@@ -18,7 +18,7 @@ window.CURSO = {
   horario: "Jueves de 9:00 a 11:00 · hora del centro de México · Google Meet",
   meet: "",                  // enlace fijo de Google Meet del curso (opcional)
   mostrarRecursos: true,     // false para ocultar la sección Recursos
-  portada: 5,               // clase a la que lleva el botón de la portada (null = la última con grabación)
+  portada: 6,              // clase a la que lleva el botón de la portada (null = la última con grabación)
 
   carpetas: {
     guias: carpeta("1lZKPSeqY1PLd_Vgzjn-t5UjXjWrhWOY6"),
@@ -90,7 +90,12 @@ window.CURSO = {
     { n: 6, fecha: "2026-11-25", titulo: "Tableros según quién los usa: operativos y estratégicos",
       resumen: "Partimos de quién usa el tablero para definir preguntas e indicadores, y armamos uno operativo con indicadores de FECHAC.",
       aprendemos: ["Del público a las preguntas y los indicadores", "Tableros operativos y estratégicos: ejemplos", "Semáforos y formato condicional", "Un tablero operativo con indicadores de FECHAC (por diseñar)"],
-      presentacion: "", grabacion: "", guia: "", tarea: null, complementario: [] },
+      presentacion: "", grabacion: "1pXO9viUpK7rgDl0H9cskjtsqAaHhCXR-",
+      guia: doc("10YbOX3ypbyi0JPNX7w3JokyDIBFZz3ZGFn-obnmtKLs"),
+      tarea: { url: doc("1u9T9GtjsUhwC45pny7UqcMc9FeF7e5G338uFptli2R4"), entrega: "Miércoles 2 de diciembre", resumen: "Con los formularios del SADAP, armar tres páginas de lo general al detalle: Indicadores, Estratégico con semáforo por consejo y el indicador 8A en Operativo." },
+      complementario: [
+        { titulo: "Dataset de formularios MEL (SADAP) y bases del curso", url: carpeta("1J1zqH6fC52tHJtacYFlf2_MF6pa7bK57"), tipo: "base" }
+      ] },
     { n: 7, fecha: "2026-12-03", titulo: "Conexión a los datos y publicación",
       resumen: "Conectamos a otras fuentes, publicamos en Power BI en la web y dejamos la actualización programada.",
       aprendemos: ["Conectar a SharePoint, Google Sheets, una API o SQL", "Publicar y compartir en Power BI en la web", "Actualización programada, puerta de enlace y licencias (Pro y no Pro)", "Opcional: seguridad por fila y vista para celular"],
