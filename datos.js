@@ -92,7 +92,7 @@ window.CURSO = {
       aprendemos: ["Del público a las preguntas y los indicadores", "Tableros operativos y estratégicos: ejemplos", "Semáforos y formato condicional", "Un tablero operativo con indicadores de FECHAC (por diseñar)"],
       presentacion: "https://docs.google.com/presentation/d/14j4iFh6qe9YoXoS2znfyY7tpaCink4VnAmuJ9NGDjqk/edit", grabacion: "1pXO9viUpK7rgDl0H9cskjtsqAaHhCXR-",
       guia: doc("10YbOX3ypbyi0JPNX7w3JokyDIBFZz3ZGFn-obnmtKLs"),
-      tarea: { url: doc("1u9T9GtjsUhwC45pny7UqcMc9FeF7e5G338uFptli2R4"), entrega: "Miércoles 2 de diciembre", resumen: "Con los formularios del SADAP, armar tres páginas de lo general al detalle: Indicadores, Estratégico con semáforo por consejo y el indicador 8A en Operativo." },
+      tarea: { url: doc("1u9T9GtjsUhwC45pny7UqcMc9FeF7e5G338uFptli2R4"), entrega: "Miércoles 2 de diciembre", resumen: "Con los formularios del SADAP, armar la página Estrategia para dirección y consejos: los 12 indicadores con semáforo, un indicador a la vez y el semáforo por consejo." },
       complementario: [
         { titulo: "Video: semáforo en una tabla", url: "https://drive.google.com/file/d/1ZByPNkfDXMpoH76703RgGEcfIrv3-WBv/view", tipo: "video" },
         { titulo: "Dataset de formularios MEL (SADAP) y bases del curso", url: carpeta("1J1zqH6fC52tHJtacYFlf2_MF6pa7bK57"), tipo: "base" }
